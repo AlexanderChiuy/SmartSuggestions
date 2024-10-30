@@ -1,0 +1,11 @@
+{
+    "version": "1.0.0",
+    "manifest_version": 3,
+    "name": "Smart Suggestions",
+    "description": "This is a Chrome extension built to use Google Gemini for Smart suggestions",
+    "action": {
+        "default_popup": "js/index.html",
+        "default_title": "Smart Suggestions",
+        "default_icon": "js/images/s_logo.png"
+    }
+}
