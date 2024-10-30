@@ -36,6 +36,11 @@ module.exports = {
                 { from: "manifest.json", to: "../manifest.json" },
             ],
         }),
+        new CopyPlugin({
+            patterns: [
+                { from: "public/", to: "images/" },
+            ],
+        }),
         ...getHtmlPlugins(["index"]),
     ],
     resolve: {
