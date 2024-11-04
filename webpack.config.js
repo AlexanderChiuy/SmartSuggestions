@@ -21,11 +21,20 @@ module.exports = {
                exclude: /node_modules/,
             },
             {
+                test: /\.(png|jpe?g|gif)$/i,
+                use: [
+                    {
+                    loader: 'file-loader',
+                    },
+                ],
+            },
+            {
               exclude: /node_modules/,
               test: /\.css$/i,
                use: [
                   "style-loader",
-                  "css-loader"
+                  "css-loader",
+                  'postcss-loader'
                ]
             },
         ],
@@ -39,6 +48,11 @@ module.exports = {
         new CopyPlugin({
             patterns: [
                 { from: "public/", to: "images/" },
+            ],
+        }),
+        new CopyPlugin({
+            patterns: [
+                { from: "src/background.js", to: "./background.js" },
             ],
         }),
         ...getHtmlPlugins(["index"]),

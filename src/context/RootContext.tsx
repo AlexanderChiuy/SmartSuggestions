@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { createContext } from 'react';
+import { createContext, useContext } from 'react';
 
 const RootContext = createContext(false);
 
@@ -16,4 +16,8 @@ export function RootProvider({ children, value }: Props) {
     </RootContext.Provider>
   );
 
+}
+
+export function useRootContext(): boolean {
+    return useContext(RootContext);
 }
