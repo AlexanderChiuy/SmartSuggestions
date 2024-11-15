@@ -6,10 +6,14 @@
     "side_panel": {
         "default_path": "js/index.html"
     },
-    "permissions": ["sidePanel"],
+    "permissions": ["sidePanel", "activeTab", "storage"],
     "background": {
         "service_worker": "js/background.js"
     },
+    "content_scripts": [{
+        "matches": ["<all_urls>"],
+        "js": ["js/content.js"]
+    }],  
     "action": {
         "default_title": "Smart Suggestions",
         "default_icon": "js/images/sprout.png"

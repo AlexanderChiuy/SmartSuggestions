@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { RootProvider } from './context/RootContext'
 import SuggestionFrame from './components/SuggestionFrame'
 import Button from '@mui/material/Button';
+import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
 import "./App.css";
 
 function App() {
@@ -14,8 +15,8 @@ function App() {
         <RootProvider value={toggle}>
           <div className="content-center text-center m-4">
             {toggle ?
-              <Button variant="contained" onClick={() => setToggle(!toggle)}>Turn On</Button> : 
-              <Button variant="contained" onClick={() => setToggle(!toggle)}>Turn Off</Button>
+              <Button endIcon={<PowerSettingsNewIcon />} variant="contained" onClick={() => setToggle(!toggle)}>Turn On</Button> : 
+              <Button endIcon={<PowerSettingsNewIcon />} variant="contained" onClick={() => setToggle(!toggle)}>Turn Off</Button>
             }
           </div>
           <SuggestionFrame />

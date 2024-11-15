@@ -1,3 +1,4 @@
+import CircularProgress from '@mui/material/CircularProgress';
 import { ReactNode } from 'react';
 
 interface Props {
@@ -10,8 +11,11 @@ function Suggestion({ children, link }: Props) {
   return (
     <a href={link} target="_blank">
         <div className="shadow-lg border-solid border-2 rounded-lg p-2 bg-white">
-            {children}
-        </div>
+            { link == "" ? 
+                <CircularProgress className="text-center m-auto" size={26} /> : 
+                children 
+            }
+        </div> 
     </a>
   );
 }

@@ -1,5 +1,6 @@
 let session;
 
+// Run Gemini prompt API
 export async function runPrompt(prompt, params) {
   try {
     if (!session) {
@@ -21,4 +22,15 @@ async function reset() {
     session.destroy();
   }
   session = null;
+}
+
+// Grab current tab url
+export async function getTabURL() {
+  const [tab] = await chrome.tabs.query({active: true, lastFocusedWindow: true});
+  console.log(tab)
+  return tab;
+}
+
+export async function getTitle() {
+  return chrome.storage.sync.get(["title"])
 }
